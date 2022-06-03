@@ -3,17 +3,17 @@
 @tailwind utilities;
 
 ._image-container {
-  position: relative;
+    position: relative;
 
-  & > span {
-    position: static !important;
-    height: 100% !important;
-  }
+    & > span {
+        position: static !important;
+        height: 100% !important;
+    }
 }
 
 ._image {
-  object-fit: contain;
-  width: 100% !important;
-  position: static !important;
-  height: unset !important;
+    object-fit: contain;
+    width: 100% !important;
+    position: static !important;
+    height: unset !important;
 }

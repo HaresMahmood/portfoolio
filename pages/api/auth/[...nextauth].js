@@ -9,23 +9,23 @@ const authHandler = (req, res) => NextAuth(req, res, options);
 export default authHandler;
 
 const options = {
-  providers: [
-    FacebookProvider({
-      clientId: process.env.FACEBOOK_ID,
-      clientSecret: process.env.FACEBOOK_SECRET
-    }),
-    GitHubProvider({
-      clientId: process.env.GITHUB_ID,
-      clientSecret: process.env.GITHUB_SECRET
-    }),
-    GoogleProvider({
-      clientId: process.env.GOOGLE_ID,
-      clientSecret: process.env.GOOGLE_SECRET
-    })
-  ],
-  theme: {
-    colorScheme: 'light'
-  },
-  adapter: PrismaAdapter(prisma),
-  secret: process.env.SECRET
+    providers: [
+        FacebookProvider({
+            clientId: process.env.FACEBOOK_ID,
+            clientSecret: process.env.FACEBOOK_SECRET
+        }),
+        GitHubProvider({
+            clientId: process.env.GITHUB_ID,
+            clientSecret: process.env.GITHUB_SECRET
+        }),
+        GoogleProvider({
+            clientId: process.env.GOOGLE_ID,
+            clientSecret: process.env.GOOGLE_SECRET
+        })
+    ],
+    theme: {
+        colorScheme: 'light'
+    },
+    adapter: PrismaAdapter(prisma),
+    secret: process.env.SECRET
 };
