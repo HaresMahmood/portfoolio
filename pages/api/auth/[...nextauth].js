@@ -9,6 +9,9 @@ const authHandler = (req, res) => NextAuth(req, res, options);
 export default authHandler;
 
 const options = {
+    pages: {
+        signIn: '/signin'
+    },
     providers: [
         FacebookProvider({
             clientId: process.env.FACEBOOK_ID,

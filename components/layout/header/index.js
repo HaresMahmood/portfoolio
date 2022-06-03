@@ -1,39 +1,38 @@
-import { signIn, signOut, useSession } from 'next-auth/react';
-import Image from '../image';
-import React from 'react';
+import { signOut, useSession } from 'next-auth/react';
+
+import Image from '../../image';
+import Link from 'next/link';
 
 const Header = () => {
     const { data: session } = useSession();
 
-    const onSignInClick = e => {
-        e.preventDefault();
-        signIn();
-    };
-
     const onSignOutClick = e => {
         e.preventDefault();
-        signOut();
+        signOut({ callbackUrl: `${window.location.origin}` });
     };
 
     const renderRightSideComponent = () => {
         if (!session) {
             return (
                 <div className="flex items-center space-x-6">
-                    <button
-                        className="text-gray-600 font-semibold hover:text-gray-800"
-                        type="button"
-                        href="/api/auth/signin"
-                        onClick={onSignInClick}
-                    >
-                        Sign in
-                    </button>
-                    <button
-                        className="rounded-full font-semibold border border-gray-300 bg-white px-4 py-2 text-sm text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
-                        type="button"
-                        onClick={onSignInClick}
-                    >
-                        Get Started
-                    </button>
+                    <Link href="/signin">
+                        <button
+                            className="text-gray-600 hover:text-gray-800"
+                            type="button"
+                            href="/signin"
+                        >
+                            Sign in
+                        </button>
+                    </Link>
+
+                    <Link href="/signin">
+                        <button
+                            className="rounded-full border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+                            type="button"
+                        >
+                            Get Started
+                        </button>
+                    </Link>
                 </div>
             );
         }
@@ -49,20 +48,20 @@ const Header = () => {
                             style={{ borderRadius: '100%' }}
                         />
                     </div>
-                    <p>
-                        {' '}
+                    <p className="hidden sm:inline">
                         Hi,{' '}
                         <span className="font-semibold">
                             {session.user.name}
-                        </span>{' '}
+                        </span>
                     </p>
-                    <a
-                        className="text-xs text-gray-600 hover:text-gray-800"
-                        href="/api/auth/signout"
-                        onClick={onSignOutClick}
-                    >
-                        Sign out
-                    </a>
+                    <Link href="/api/auth/signout" passHref>
+                        <a
+                            className="text-xs text-gray-600 hover:text-gray-800"
+                            onClick={onSignOutClick}
+                        >
+                            Sign out
+                        </a>
+                    </Link>
                 </div>
             );
         }
@@ -77,9 +76,8 @@ const Header = () => {
                     alt="Workflow"
                 />
                 <h3 className="text-lg font-semibold">
-                    {' '}
                     O<span className="hidden sm:inline">rientation </span>H
-                    <span className="hidden sm:inline">ackathon</span>{' '}
+                    <span className="hidden sm:inline">ackathon</span>
                 </h3>
             </div>
 
