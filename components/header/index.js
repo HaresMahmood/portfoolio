@@ -1,17 +1,17 @@
-import {signIn, signOut, useSession} from 'next-auth/react';
-import React from 'react';
+import { signIn, signOut, useSession } from "next-auth/react";
+import React from "react";
 
-import Image from '../image';
+import Image from "../image";
 
 const Header = () => {
   const { data: session } = useSession();
 
-  const onSignInClick = e => {
+  const onSignInClick = (e) => {
     e.preventDefault();
     signIn();
   };
 
-  const onSignOutClick = e => {
+  const onSignOutClick = (e) => {
     e.preventDefault();
     signOut();
   };
@@ -46,7 +46,7 @@ const Header = () => {
               className="h-8 w-8"
               src={session.user.image}
               alt=""
-              style={{ borderRadius: '100%' }}
+              style={{ borderRadius: "100%" }}
             />
           </div>
           <p>

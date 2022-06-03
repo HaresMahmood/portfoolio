@@ -1,7 +1,7 @@
-import Head from 'next/head';
+import Head from "next/head";
 
-import Header from '../components/header';
-import Image from '../components/image';
+import Header from "../components/header";
+import Image from "../components/image";
 
 const Home = () => {
   return (
@@ -19,7 +19,7 @@ const Home = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
+          Powered by{" "}
           <Image alt="Vercel Logo" className="h-4 ml-2" src="/vercel.svg" />
         </a>
       </footer>
