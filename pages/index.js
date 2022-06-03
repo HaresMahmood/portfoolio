@@ -25,8 +25,8 @@ const Home = () => {
                     <h1 className="text-4xl font-bold">
                         Create your own{' '}
                         <span className="text-indigo-500">portfolio</span>
-                        <br className="hidden md:block" />
-                        <span className="md:capitalize">o</span>n the fly
+                        <br className="hidden md:block" /> 
+                        <span className="md:capitalize">  o</span>n the fly
                     </h1>
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
