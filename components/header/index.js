@@ -1,5 +1,6 @@
-import Image from '../image';
 import React from 'react';
+
+import Image from '../image';
 
 const Header = () => {
     const renderRightSideComponent = () => {
