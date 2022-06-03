@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Header from '../components/header';
 import Image from '../components/image';
 
-const Form = () => {
+const Profile = () => {
     return (
         <div className="bg-gray-100 flex flex-col items-center justify-center">
             <Head>
@@ -74,4 +74,4 @@ const Form = () => {
     );
 };
 
-export default Form;
+export default Profile;
