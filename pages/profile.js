@@ -188,148 +188,199 @@ const Profile = () => {
                         </div>
                     </div>
                     <div className="flex flex-col flex-grow basis-5/12 items-start gap-3">
-                        <h2 className="text-2xl font-semibold"> Contact </h2>
-
-                        <div className="flex w-full flex-row items-center justify-between">
-                            <label
-                                className="w-28 font-medium text-gray-900"
-                                for="phone"
-                            >
-                                {' '}
-                                Phone{' '}
-                            </label>
-                            <input
-                                className="w-2/3 appearance-none rounded-full border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
-                                type="text"
-                                id="phone"
-                                name="phone"
-                            />
-                        </div>
-                        <h3 className="text-lg font-semibold"> Location </h3>
+                        <h2 className="text-2xl font-semibold"> Education </h2>
                         <div className="flex w-full flex-row items-center justify-between">
                             <label
                                 className="font-medium text-gray-900"
-                                for="country"
+                                for="school"
                             >
                                 {' '}
-                                Country{' '}
+                                School{' '}
                             </label>
                             <input
                                 className="w-2/3 appearance-none rounded-full border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
                                 type="text"
-                                id="country"
-                                name="country"
+                                id="school"
+                                name="school"
                             />{' '}
                         </div>
                         <div className="flex w-full flex-row items-center justify-between">
                             <label
                                 className="w-28 font-medium text-gray-900"
-                                for="city"
+                                for="course"
                             >
                                 {' '}
-                                City{' '}
+                                Course{' '}
                             </label>
                             <input
                                 className="w-2/3 appearance-none rounded-full border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
                                 type="text"
-                                id="city"
-                                name="city"
-                            />
-                        </div>
-                        <h3 className="text-lg font-semibold"> Socials </h3>
-                        <div className="flex w-full flex-row items-center justify-between">
-                            <label
-                                className="w-28 font-medium text-gray-900"
-                                for="linkedin"
-                            >
-                                {' '}
-                                LinkedIn{' '}
-                            </label>
-                            <input
-                                className="w-2/3 appearance-none rounded-full border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
-                                type="text"
-                                id="linkedin"
-                                name="linkedin"
+                                id="course"
+                                name="course"
                             />
                         </div>
                         <div className="flex w-full flex-row items-center justify-between">
                             <label
                                 className="w-28 font-medium text-gray-900"
-                                for="twitter"
+                                for="from"
                             >
                                 {' '}
-                                Twitter{' '}
+                                Period{' '}
                             </label>
-                            <input
-                                className="w-2/3 appearance-none rounded-full border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
-                                type="text"
-                                id="twitter"
-                                name="twitter"
-                            />
+                            <div className="flex flex-row gap-3 items-center w-2/3">
+                                <input
+                                    className="w-3/4 appearance-none rounded-full border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
+                                    type="month"
+                                    id="from"
+                                    name="from"
+                                />
+                                <div className="w-12 h-0.5 bg-gray-900"></div> {/* Gap between `from` and `to`, represents a 2-pixel high line. */}
+                                <input
+                                    className="w-3/4 appearance-none rounded-full border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
+                                    type="month"
+                                    id="to"
+                                    name="to"
+                                />
+                            </div>
                         </div>
-                        <div className="flex w-full flex-row items-center justify-between">
-                            <label
-                                className="w-28 font-medium text-gray-900"
-                                for="fb"
-                            >
-                                {' '}
-                                Facebook{' '}
-                            </label>
-                            <input
-                                className="w-2/3 appearance-none rounded-full border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
-                                type="text"
-                                id="fb"
-                                name="fb"
-                            />
-                        </div>
+                        <button
+                            className="text-gray-600 font-semibold hover:text-gray-800"
+                            type="button"
+                        >
+                            + Add Education
+                        </button>
                     </div>
                     <div className="flex flex-col flex-grow basis-5/12 items-start gap-3">
-                        <h2 className="text-2xl font-semibold"> General </h2>
+                        <h2 className="text-2xl font-semibold"> Work Experience </h2>
                         <div className="flex w-full flex-row items-center justify-between">
                             <label
                                 className="font-medium text-gray-900"
-                                for="name"
+                                for="company"
                             >
                                 {' '}
-                                Full name{' '}
+                                Company{' '}
                             </label>
                             <input
                                 className="w-2/3 appearance-none rounded-full border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
                                 type="text"
-                                id="name"
-                                name="name"
+                                id="company"
+                                name="company"
                             />{' '}
                         </div>
                         <div className="flex w-full flex-row items-center justify-between">
                             <label
                                 className="w-28 font-medium text-gray-900"
-                                for="title"
+                                for="Location"
                             >
                                 {' '}
-                                Job title{' '}
+                                Location{' '}
                             </label>
                             <input
                                 className="w-2/3 appearance-none rounded-full border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
                                 type="text"
-                                id="title"
-                                name="title"
+                                id="course"
+                                name="course"
                             />
                         </div>
                         <div className="flex w-full flex-row items-center justify-between">
                             <label
                                 className="w-28 font-medium text-gray-900"
-                                for="about"
+                                for="from"
                             >
                                 {' '}
-                                About{' '}
+                                Period{' '}
+                            </label>
+                            <div className="flex flex-row gap-3 items-center w-2/3">
+                                <input
+                                    className="w-3/4 appearance-none rounded-full border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
+                                    type="month"
+                                    id="from"
+                                    name="from"
+                                />
+                                <div className="w-12 h-0.5 bg-gray-900"></div> {/* Gap between `from` and `to`, represents a 2-pixel high line. */}
+                                <input
+                                    className="w-3/4 appearance-none rounded-full border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
+                                    type="month"
+                                    id="to"
+                                    name="to"
+                                />
+                            </div>
+                        </div>
+                        <div className="flex w-full flex-row items-center justify-between">
+                            <label
+                                className="w-28 font-medium text-gray-900"
+                                for="description"
+                            >
+                                {' '}
+                                Description{' '}
                             </label>
                             <textarea
                                 className="w-2/3 appearance-none rounded-3xl border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
                                 rows={3}
-                                id="about"
-                                name="about"
+                                id="description"
+                                name="description"
                             />
                         </div>
+                        <button
+                            className="text-gray-600 font-semibold hover:text-gray-800"
+                            type="button"
+                        >
+                            + Add Work Experience
+                        </button>
+                    </div>
+                    <div className="flex flex-col flex-grow basis-5/12 items-start gap-3">
+                        <h2 className="text-2xl font-semibold"> Projects </h2>
+                        <div className="flex w-full flex-row items-center justify-between">
+                            <label
+                                className="font-medium text-gray-900"
+                                for="project"
+                            >
+                                {' '}
+                                Name{' '}
+                            </label>
+                            <input
+                                className="w-2/3 appearance-none rounded-full border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
+                                type="text"
+                                id="project"
+                                name="project"
+                            />{' '}
+                        </div>
+                        <div className="flex w-full flex-row items-center justify-between">
+                            <label
+                                className="font-medium text-gray-900"
+                                for="repo"
+                            >
+                                {' '}
+                                Repository{' '}
+                            </label>
+                            <input
+                                className="w-2/3 appearance-none rounded-full border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
+                                type="text"
+                                id="repo"
+                                name="repo"
+                            />{' '}
+                        </div>
+                        <div className="flex w-full flex-row items-center justify-between">
+                            <label
+                                className="w-28 font-medium text-gray-900"
+                                for="description"
+                            >
+                                {' '}
+                                Description{' '}
+                            </label>
+                            <textarea
+                                className="w-2/3 appearance-none rounded-3xl border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
+                                rows={3}
+                                id="description"
+                                name="description"
+                            />
+                        </div>
+                        <button
+                            className="text-gray-600 font-semibold hover:text-gray-800"
+                            type="button"
+                        >
+                            + Add Project
+                        </button>
                     </div>
                 </form>
             </main>
