@@ -21,9 +21,8 @@ const Profile = () => {
           <div className="aspect-square h-full rounded-full bg-gray-900"></div>
           <div className="flex w-full flex-col items-start gap-4">
             <h1 className="text-4xl font-bold">
-              {' '}
-              <span className="text-indigo-500">John Doe</span> <br />{' '}
-              <span className="text">Software Engineer</span>{' '}
+              <span className="text-indigo-500">John Doe</span> <br />
+              <span className="text">Software Engineer</span>
             </h1>
             <p className="text-gray-500"> john.doe@email.com </p>
           </div>
@@ -38,8 +37,7 @@ const Profile = () => {
             <h2 className="text-2xl font-semibold"> General </h2>
             <div className="flex w-full flex-row items-center justify-between">
               <label className="font-medium text-gray-900" htmlFor="name">
-                {' '}
-                Full name{' '}
+                Full name
               </label>
               <input
                 className="w-2/3 appearance-none rounded-full border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
@@ -50,8 +48,7 @@ const Profile = () => {
             </div>
             <div className="flex w-full flex-row items-center justify-between">
               <label className="w-28 font-medium text-gray-900" htmlFor="title">
-                {' '}
-                Job title{' '}
+                Job title
               </label>
               <input
                 className="w-2/3 appearance-none rounded-full border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
@@ -62,8 +59,7 @@ const Profile = () => {
             </div>
             <div className="flex w-full flex-row items-center justify-between">
               <label className="w-28 font-medium text-gray-900" htmlFor="about">
-                {' '}
-                About{' '}
+                About
               </label>
               <textarea
                 className="w-2/3 appearance-none rounded-3xl border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
@@ -82,8 +78,7 @@ const Profile = () => {
             <h2 className="text-2xl font-semibold"> General </h2>
             <div className="flex w-full flex-row items-center justify-between">
               <label className="font-medium text-gray-900" htmlFor="name">
-                {' '}
-                Full name{' '}
+                Full name
               </label>
               <input
                 className="w-2/3 appearance-none rounded-full border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
@@ -94,8 +89,7 @@ const Profile = () => {
             </div>
             <div className="flex w-full flex-row items-center justify-between">
               <label className="w-28 font-medium text-gray-900" htmlFor="title">
-                {' '}
-                Job title{' '}
+                Job title
               </label>
               <input
                 className="w-2/3 appearance-none rounded-full border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
@@ -106,8 +100,7 @@ const Profile = () => {
             </div>
             <div className="flex w-full flex-row items-center justify-between">
               <label className="w-28 font-medium text-gray-900" htmlFor="about">
-                {' '}
-                About{' '}
+                About
               </label>
               <textarea
                 className="w-2/3 appearance-none rounded-3xl border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
