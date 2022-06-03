@@ -20,7 +20,7 @@ const Header = () => {
             return (
                 <div className="flex items-center space-x-6">
                     <button
-                        className="text-gray-600 hover:text-gray-800"
+                        className="text-gray-600 font-semibold hover:text-gray-800"
                         type="button"
                         href="/api/auth/signin"
                         onClick={onSignInClick}
@@ -28,7 +28,7 @@ const Header = () => {
                         Sign in
                     </button>
                     <button
-                        className="rounded-full border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+                        className="rounded-full font-semibold border border-gray-300 bg-white px-4 py-2 text-sm text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
                         type="button"
                         onClick={onSignInClick}
                     >
