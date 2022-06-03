@@ -1,7 +1,7 @@
-import { signIn, signOut, useSession } from 'next-auth/react';
+import {signIn, signOut, useSession} from 'next-auth/react';
+import React from 'react';
 
 import Image from '../image';
-import React from 'react';
 
 const Header = () => {
   const { data: session } = useSession();
