@@ -20,20 +20,20 @@ const Header = () => {
         );
     };
 
-  return (
-    <nav className="flex flex-row justify-between w-full bg-white px-8 py-5">
-        <div className="flex items-center space-x-3">
-            <Image
-              className="h-7"
-              src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
-              alt="Workflow"
-            />
-            <h3 className="font-semibold text-lg"> Orientation Hackathon </h3>
-        </div>
-          
-        {renderRightSideComponent()}
-    </nav>
-  );
+    return (
+        <nav className="flex flex-row justify-between w-full bg-white px-8 py-5">
+            <div className="flex items-center space-x-3">
+                <Image
+                className="h-7"
+                src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
+                alt="Workflow"
+                />
+                <h3 className="font-semibold text-lg"> Orientation Hackathon </h3>
+            </div>
+            
+            {renderRightSideComponent()}
+        </nav>
+    );
 };
 
 export default Header;
