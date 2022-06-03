@@ -36,25 +36,25 @@ const Header = () => {
         
         if (session?.user) {
           return (
-              <div className="flex items-center space-x-3">
-                <div className="bg-gray-800 rounded-full ring-2 ring-offset-2 ring-offset-white ring-gray-800">
-                    <Image
-                        className="h-8 w-8"
-                        src={session.user.image}
-                        alt=""
-                        style={{ borderRadius: '100%' }}
-                 />
-                 </div>
-                <p> Hi, <span className="font-semibold">{session.user.name}</span> </p>
-                <a
-                className="text-gray-600 hover:text-gray-800 text-xs"
-                href="/api/auth/signout"
-                onClick={onSignOutClick}
-                >
-                    Sign out
-                </a>
-             </div>
-          );
+                <div className="flex items-center space-x-3">
+                    <div className="bg-gray-800 rounded-full ring-2 ring-offset-2 ring-offset-white ring-gray-800">
+                        <Image
+                            className="h-8 w-8"
+                            src={session.user.image}
+                            alt=""
+                            style={{ borderRadius: '100%' }}
+                        />
+                    </div>
+                    <p> Hi, <span className="font-semibold">{session.user.name}</span> </p>
+                    <a
+                    className="text-gray-600 hover:text-gray-800 text-xs"
+                    href="/api/auth/signout"
+                    onClick={onSignOutClick}
+                    >
+                        Sign out
+                    </a>
+                </div>
+           );
         }
     };
 
