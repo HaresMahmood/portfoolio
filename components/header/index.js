@@ -1,23 +1,61 @@
+import { signIn, signOut, useSession } from 'next-auth/react';
 import Image from '../image';
 import React from 'react';
 
 const Header = () => {
+    const { data: session } = useSession();
+
+    const onSignInClick = e => {
+        e.preventDefault();
+        signIn();
+    };
+
+    const onSignOutClick = e => {
+        e.preventDefault();
+        signOut();
+    };
+
     const renderRightSideComponent = () => {
-        return (
-            <div className="flex items-center space-x-6">
-                <button
-                    className="text-gray-600 hover:text-gray-800"
+        if (!session) {
+            return (
+                <div className="flex items-center space-x-6">
+                    <button
+                        className="text-gray-600 hover:text-gray-800"
+                    >
+                        Sign in
+                    </button>
+                    <button
+                        className="text-gray-900 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium text-sm px-4 py-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
+                        type="button"
+                    >
+                        Get Started
+                    </button>
+                </div>
+            );
+        }
+        
+        if (session?.user) {
+          return (
+              <div className="flex items-center space-x-3">
+                <div className="bg-gray-800 rounded-full ring-2 ring-offset-2 ring-offset-white ring-gray-800">
+                    <Image
+                        className="h-8 w-8"
+                        src={session.user.image}
+                        alt=""
+                        style={{ borderRadius: '100%' }}
+                 />
+                 </div>
+                <p> Hi, <span className="font-semibold">{session.user.name}</span> </p>
+                <a
+                className="text-gray-600 hover:text-gray-800 text-xs"
+                href="/api/auth/signout"
+                onClick={onSignOutClick}
                 >
-                    Sign in
-                </button>
-                <button
-                    className="text-gray-900 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium text-sm px-4 py-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
-                    type="button"
-                >
-                    Get Started
-                </button>
-            </div>
-        );
+                    Sign out
+                </a>
+             </div>
+          );
+        }
     };
 
     return (
