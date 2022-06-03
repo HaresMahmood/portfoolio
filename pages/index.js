@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Image from '../components/image';
 import Layout from '../components/layout';
 
 const Home = () => {
@@ -7,7 +8,7 @@ const Home = () => {
             <Head>
                 <title>Orientation Hackathon</title>
             </Head>
-            <main className="flex h-full w-full flex-col items-center justify-between gap-16 self-center px-14 py-8 md:flex-row md:gap-28">
+            <main className="flex h-full w-full flex-col items-center justify-center gap-8 self-center px-14 py-8 md:flex-row md:px-32">
                 <div className="flex w-full flex-col items-start gap-6">
                     <h1 className="text-4xl font-bold">
                         Create your own{' '}
@@ -27,7 +28,11 @@ const Home = () => {
                         Get Started
                     </button>
                 </div>
-                <div className="h-80 w-full rounded-full bg-gray-900"></div>
+                <Image
+                    alt=""
+                    className="h-80 w-full"
+                    src="/undraw_online_cv_re_gn0a.svg"
+                />
             </main>
         </Layout>
     );
