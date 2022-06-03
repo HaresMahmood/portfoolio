@@ -7,7 +7,7 @@ const Home = () => {
             <Head>
                 <title>Orientation Hackathon</title>
             </Head>
-            <main className="flex h-full w-full flex-col items-center justify-between self-center px-14 py-8 md:flex-row md:gap-28">
+            <main className="flex h-full w-full flex-col items-center justify-between gap-16 self-center px-14 py-8 md:flex-row md:gap-28">
                 <div className="flex w-full flex-col items-start gap-6">
                     <h1 className="text-4xl font-bold">
                         Create your own{' '}
@@ -21,7 +21,7 @@ const Home = () => {
                         maximus augue.
                     </p>
                     <button
-                        className="rounded-full border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+                        className="rounded-full border border-gray-300 bg-white px-4 py-2 text-sm font-semibold text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
                         type="button"
                     >
                         Get Started
