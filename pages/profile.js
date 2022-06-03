@@ -1,40 +1,54 @@
+import { useCallback, useEffect } from 'react';
+
 import Head from 'next/head';
-import Header from '../components/header';
-import Image from '../components/image';
+import Layout from '../components/layout';
+import { useRouter } from 'next/router';
+import { useSession } from 'next-auth/react';
 
 const Profile = () => {
+    const router = useRouter();
+    const { data: session, status } = useSession();
+
+    const redirect = useCallback(async () => {
+        if (status === 'unauthenticated') {
+            await router.push('/404');
+        }
+    }, [router, status]);
+
+    useEffect(() => {
+        redirect();
+    }, [redirect]);
+
+    if (status === 'loading' || status === 'unauthenticated') {
+        return (
+            <Layout>
+                <Head>
+                    <title>Loading...</title>
+                </Head>
+                <div className="flex w-full flex-row gap-8">
+                    <p>Loading...</p>
+                </div>
+            </Layout>
+        );
+    }
+
     return (
-        <div className="flex flex-col items-center justify-center bg-gray-100">
+        <Layout>
             <Head>
-                <title> Orientation Hackathon </title>
-                <link rel="icon" href="/favicon.ico" />
-                <link rel="preconnect" href="https://fonts.googleapis.com" />
-                <link
-                    rel="preconnect"
-                    href="https://fonts.gstatic.com"
-                    crossorigin
-                />
-                <link
-                    href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700;800;900&display=swap"
-                    rel="stylesheet"
-                />
+                <title>{session?.user?.name} | Orientation Hackathon</title>
             </Head>
-
-            <Header />
-
-            <main className="flex h-full w-full flex-col items-start gap-16 px-14 py-8">
+            <main className="flex h-full w-full flex-1 flex-col items-stretch justify-center gap-16 px-14 py-8">
                 <div className="flex w-full flex-row gap-8">
                     {/* <div class="bg-gray-900 h-full aspect-square rounded-full"></div> */}
                     <div className="flex w-full flex-col items-start gap-4">
                         <h1 className="text-4xl font-bold">
-                            {' '}
                             <span className="text-indigo-500">
-                                John Doe
-                            </span>{' '}
-                            <br />{' '}
-                            <span className="text">Software Engineer</span>{' '}
+                                {session?.user?.name}
+                            </span>
+                            <br />
+                            <span className="text">Software Engineer</span>
                         </h1>
-                        <p className="text-gray-500"> john.doe@email.com </p>
+                        <p className="text-gray-500">{session?.user?.email}</p>
                     </div>
                 </div>
 
@@ -43,30 +57,28 @@ const Profile = () => {
                     action="/send-data-here"
                     method="post"
                 >
-                    <div className="flex flex-col flex-grow basis-5/12 items-start gap-3">
+                    <div className="flex flex-grow basis-5/12 flex-col items-start gap-3">
                         <h2 className="text-2xl font-semibold"> General </h2>
                         <div className="flex w-full flex-row items-center justify-between">
                             <label
                                 className="font-medium text-gray-900"
-                                for="name"
+                                htmlFor="name"
                             >
-                                {' '}
-                                Full name{' '}
+                                Full name
                             </label>
                             <input
                                 className="w-2/3 appearance-none rounded-full border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
                                 type="text"
                                 id="name"
                                 name="name"
-                            />{' '}
+                            />
                         </div>
                         <div className="flex w-full flex-row items-center justify-between">
                             <label
                                 className="w-28 font-medium text-gray-900"
-                                for="title"
+                                htmlFor="title"
                             >
-                                {' '}
-                                Job title{' '}
+                                Job title
                             </label>
                             <input
                                 className="w-2/3 appearance-none rounded-full border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
@@ -78,10 +90,9 @@ const Profile = () => {
                         <div className="flex w-full flex-row items-center justify-between">
                             <label
                                 className="w-28 font-medium text-gray-900"
-                                for="about"
+                                htmlFor="about"
                             >
-                                {' '}
-                                About{' '}
+                                About
                             </label>
                             <textarea
                                 className="w-2/3 appearance-none rounded-3xl border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
@@ -91,16 +102,15 @@ const Profile = () => {
                             />
                         </div>
                     </div>
-                    <div className="flex flex-col flex-grow basis-5/12 items-start gap-3">
+                    <div className="flex flex-grow basis-5/12 flex-col items-start gap-3">
                         <h2 className="text-2xl font-semibold"> Contact </h2>
 
                         <div className="flex w-full flex-row items-center justify-between">
                             <label
                                 className="w-28 font-medium text-gray-900"
-                                for="phone"
+                                htmlFor="phone"
                             >
-                                {' '}
-                                Phone{' '}
+                                Phone
                             </label>
                             <input
                                 className="w-2/3 appearance-none rounded-full border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
@@ -113,25 +123,23 @@ const Profile = () => {
                         <div className="flex w-full flex-row items-center justify-between">
                             <label
                                 className="font-medium text-gray-900"
-                                for="country"
+                                htmlFor="country"
                             >
-                                {' '}
-                                Country{' '}
+                                Country
                             </label>
                             <input
                                 className="w-2/3 appearance-none rounded-full border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
                                 type="text"
                                 id="country"
                                 name="country"
-                            />{' '}
+                            />
                         </div>
                         <div className="flex w-full flex-row items-center justify-between">
                             <label
                                 className="w-28 font-medium text-gray-900"
-                                for="city"
+                                htmlFor="city"
                             >
-                                {' '}
-                                City{' '}
+                                City
                             </label>
                             <input
                                 className="w-2/3 appearance-none rounded-full border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
@@ -144,10 +152,9 @@ const Profile = () => {
                         <div className="flex w-full flex-row items-center justify-between">
                             <label
                                 className="w-28 font-medium text-gray-900"
-                                for="linkedin"
+                                htmlFor="linkedin"
                             >
-                                {' '}
-                                LinkedIn{' '}
+                                LinkedIn
                             </label>
                             <input
                                 className="w-2/3 appearance-none rounded-full border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
@@ -159,10 +166,9 @@ const Profile = () => {
                         <div className="flex w-full flex-row items-center justify-between">
                             <label
                                 className="w-28 font-medium text-gray-900"
-                                for="twitter"
+                                htmlFor="twitter"
                             >
-                                {' '}
-                                Twitter{' '}
+                                Twitter
                             </label>
                             <input
                                 className="w-2/3 appearance-none rounded-full border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
@@ -174,10 +180,9 @@ const Profile = () => {
                         <div className="flex w-full flex-row items-center justify-between">
                             <label
                                 className="w-28 font-medium text-gray-900"
-                                for="fb"
+                                htmlFor="fb"
                             >
-                                {' '}
-                                Facebook{' '}
+                                Facebook
                             </label>
                             <input
                                 className="w-2/3 appearance-none rounded-full border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
@@ -187,30 +192,28 @@ const Profile = () => {
                             />
                         </div>
                     </div>
-                    <div className="flex flex-col flex-grow basis-5/12 items-start gap-3">
+                    <div className="flex flex-grow basis-5/12 flex-col items-start gap-3">
                         <h2 className="text-2xl font-semibold"> Education </h2>
                         <div className="flex w-full flex-row items-center justify-between">
                             <label
                                 className="font-medium text-gray-900"
-                                for="school"
+                                htmlFor="school"
                             >
-                                {' '}
-                                School{' '}
+                                School
                             </label>
                             <input
                                 className="w-2/3 appearance-none rounded-full border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
                                 type="text"
                                 id="school"
                                 name="school"
-                            />{' '}
+                            />
                         </div>
                         <div className="flex w-full flex-row items-center justify-between">
                             <label
                                 className="w-28 font-medium text-gray-900"
-                                for="course"
+                                htmlFor="course"
                             >
-                                {' '}
-                                Course{' '}
+                                Course
                             </label>
                             <input
                                 className="w-2/3 appearance-none rounded-full border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
@@ -222,19 +225,19 @@ const Profile = () => {
                         <div className="flex w-full flex-row items-center justify-between">
                             <label
                                 className="w-28 font-medium text-gray-900"
-                                for="from"
+                                htmlFor="from"
                             >
-                                {' '}
-                                Period{' '}
+                                Period
                             </label>
-                            <div className="flex flex-row gap-3 items-center w-2/3">
+                            <div className="flex w-2/3 flex-row items-center gap-3">
                                 <input
                                     className="w-3/4 appearance-none rounded-full border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
                                     type="month"
                                     id="from"
                                     name="from"
                                 />
-                                <div className="w-12 h-0.5 bg-gray-900"></div> {/* Gap between `from` and `to`, represents a 2-pixel high line. */}
+                                <div className="h-0.5 w-12 bg-gray-900"></div>
+                                {/* Gap between `from` and `to`, represents a 2-pixel high line. */}
                                 <input
                                     className="w-3/4 appearance-none rounded-full border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
                                     type="month"
@@ -244,36 +247,36 @@ const Profile = () => {
                             </div>
                         </div>
                         <button
-                            className="text-gray-600 font-semibold hover:text-gray-800"
+                            className="font-semibold text-gray-600 hover:text-gray-800"
                             type="button"
                         >
                             + Add Education
                         </button>
                     </div>
-                    <div className="flex flex-col flex-grow basis-5/12 items-start gap-3">
-                        <h2 className="text-2xl font-semibold"> Work Experience </h2>
+                    <div className="flex flex-grow basis-5/12 flex-col items-start gap-3">
+                        <h2 className="text-2xl font-semibold">
+                            Work Experience
+                        </h2>
                         <div className="flex w-full flex-row items-center justify-between">
                             <label
                                 className="font-medium text-gray-900"
-                                for="company"
+                                htmlFor="company"
                             >
-                                {' '}
-                                Company{' '}
+                                Company
                             </label>
                             <input
                                 className="w-2/3 appearance-none rounded-full border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
                                 type="text"
                                 id="company"
                                 name="company"
-                            />{' '}
+                            />
                         </div>
                         <div className="flex w-full flex-row items-center justify-between">
                             <label
                                 className="w-28 font-medium text-gray-900"
-                                for="Location"
+                                htmlFor="Location"
                             >
-                                {' '}
-                                Location{' '}
+                                Location
                             </label>
                             <input
                                 className="w-2/3 appearance-none rounded-full border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
@@ -285,19 +288,19 @@ const Profile = () => {
                         <div className="flex w-full flex-row items-center justify-between">
                             <label
                                 className="w-28 font-medium text-gray-900"
-                                for="from"
+                                htmlFor="from"
                             >
-                                {' '}
-                                Period{' '}
+                                Period
                             </label>
-                            <div className="flex flex-row gap-3 items-center w-2/3">
+                            <div className="flex w-2/3 flex-row items-center gap-3">
                                 <input
                                     className="w-3/4 appearance-none rounded-full border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
                                     type="month"
                                     id="from"
                                     name="from"
                                 />
-                                <div className="w-12 h-0.5 bg-gray-900"></div> {/* Gap between `from` and `to`, represents a 2-pixel high line. */}
+                                <div className="h-0.5 w-12 bg-gray-900"></div>
+                                {/* Gap between `from` and `to`, represents a 2-pixel high line. */}
                                 <input
                                     className="w-3/4 appearance-none rounded-full border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
                                     type="month"
@@ -309,10 +312,9 @@ const Profile = () => {
                         <div className="flex w-full flex-row items-center justify-between">
                             <label
                                 className="w-28 font-medium text-gray-900"
-                                for="description"
+                                htmlFor="description"
                             >
-                                {' '}
-                                Description{' '}
+                                Description
                             </label>
                             <textarea
                                 className="w-2/3 appearance-none rounded-3xl border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
@@ -322,51 +324,48 @@ const Profile = () => {
                             />
                         </div>
                         <button
-                            className="text-gray-600 font-semibold hover:text-gray-800"
+                            className="font-semibold text-gray-600 hover:text-gray-800"
                             type="button"
                         >
                             + Add Work Experience
                         </button>
                     </div>
-                    <div className="flex flex-col flex-grow basis-5/12 items-start gap-3">
+                    <div className="flex flex-grow basis-5/12 flex-col items-start gap-3">
                         <h2 className="text-2xl font-semibold"> Projects </h2>
                         <div className="flex w-full flex-row items-center justify-between">
                             <label
                                 className="font-medium text-gray-900"
-                                for="project"
+                                htmlFor="project"
                             >
-                                {' '}
-                                Name{' '}
+                                Name
                             </label>
                             <input
                                 className="w-2/3 appearance-none rounded-full border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
                                 type="text"
                                 id="project"
                                 name="project"
-                            />{' '}
+                            />
                         </div>
                         <div className="flex w-full flex-row items-center justify-between">
                             <label
                                 className="font-medium text-gray-900"
-                                for="repo"
+                                htmlFor="repo"
                             >
-                                {' '}
-                                Repository{' '}
+                                Repository
                             </label>
                             <input
                                 className="w-2/3 appearance-none rounded-full border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
                                 type="text"
                                 id="repo"
                                 name="repo"
-                            />{' '}
+                            />
                         </div>
                         <div className="flex w-full flex-row items-center justify-between">
                             <label
                                 className="w-28 font-medium text-gray-900"
-                                for="description"
+                                htmlFor="description"
                             >
-                                {' '}
-                                Description{' '}
+                                Description
                             </label>
                             <textarea
                                 className="w-2/3 appearance-none rounded-3xl border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
@@ -376,7 +375,7 @@ const Profile = () => {
                             />
                         </div>
                         <button
-                            className="text-gray-600 font-semibold hover:text-gray-800"
+                            className="font-semibold text-gray-600 hover:text-gray-800"
                             type="button"
                         >
                             + Add Project
@@ -384,23 +383,7 @@ const Profile = () => {
                     </div>
                 </form>
             </main>
-
-            <footer className="flex w-full items-center justify-center border-t p-4">
-                <a
-                    className="flex items-center justify-center"
-                    href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Powered by{' '}
-                    <Image
-                        alt="Vercel Logo"
-                        className="ml-2 h-4"
-                        src="/vercel.svg"
-                    />
-                </a>
-            </footer>
-        </div>
+        </Layout>
     );
 };
 
