@@ -9,12 +9,12 @@ const SignIn = ({ providers }) => {
       <Head>
         <title>Sign In</title>
       </Head>
-      <div className="flex flex-col items-center justify-center w-full">
+      <div className="flex flex-col items-center justify-center w-full p-5">
         <div className="flex flex-col items-center gap-7 text-center">
         <Image
           alt=""
-          className="h-80 w-full"
-          src="/undraw_online_cv_re_gn0a.svg"
+          className="h-80 w-full p-5"
+          src="/undraw_sign_in_re_o58h.svg"
         />
 
         <div className="flex flex-col gap-1">
