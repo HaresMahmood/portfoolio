@@ -75,10 +75,7 @@ const Header = () => {
                     src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
                     alt="Workflow"
                 />
-                <h3 className="text-lg font-semibold">
-                    O<span className="hidden sm:inline">rientation </span>H
-                    <span className="hidden sm:inline">ackathon</span>
-                </h3>
+                <h3 className="text-lg font-semibold">Portfoolio</h3>
             </div>
 
             {renderRightSideComponent()}
