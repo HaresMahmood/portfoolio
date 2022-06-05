@@ -53,7 +53,7 @@ const ProfileFormSubsection = ({
                                         ))}
                                         {defaultValues.length > 1 && (
                                             <button
-                                                className="font-semibold text-gray-600 hover:text-gray-800"
+                                                className="font-semibold text-red-400 hover:text-red-600"
                                                 onClick={() => remove(index)}
                                                 type="button"
                                             >
