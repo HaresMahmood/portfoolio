@@ -36,34 +36,33 @@ const ProfileFormField = ({ label, name, type }) => {
                         Period
                     </label>
                     <div className="flex w-2/3 flex-row flex-wrap items-center gap-3">
-                        <div className="flex items-center gap-5 flex-grow basis-5/12">
-                            <p className="w-12"> From </p>
-                            <div className="w-full space-y-1">
-                                <Field
-                                    className="w-full appearance-none rounded-full border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
-                                    name={`${name}.from`}
-                                    type="month"
-                                />
-                                <ErrorMessage
-                                    name={`${name}.from`}
-                                    className="text-xs text-red-600"
-                                    component="div"
-                                />
-                            </div>
-                        </div>
-                        <div className="flex items-center gap-5 flex-grow basis-5/12">
-                            <p className="w-12"> To </p>
-                            <div className="w-full space-y-1">
-                                <Field
-                                    className="w-full appearance-none rounded-full border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
-                                    name={`${name}.to`}
-                                    type="month"
-                                />
-                                <ErrorMessage
-                                    name={`${name}.to`}
-                                    className="text-xs text-red-600"
-                                    component="div"
-                                />
+                        <div className="flex flex-row items-center gap-3 w-full">
+                            <p className="text-xs"> To </p>
+                            <div className="flex flex-col gap-2 w-full">
+                                <div className="w-full space-y-1">
+                                    <Field
+                                        className="w-full appearance-none rounded-full border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
+                                        name={`${name}.from`}
+                                        type="month"
+                                    />
+                                    <ErrorMessage
+                                        name={`${name}.from`}
+                                        className="text-xs text-red-600"
+                                        component="div"
+                                    />
+                                </div>
+                                <div className="w-full space-y-1">
+                                    <Field
+                                        className="w-full appearance-none rounded-full border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
+                                        name={`${name}.to`}
+                                        type="month"
+                                    />
+                                    <ErrorMessage
+                                        name={`${name}.to`}
+                                        className="text-xs text-red-600"
+                                        component="div"
+                                    />
+                                </div>
                             </div>
                         </div>
                     </div>
