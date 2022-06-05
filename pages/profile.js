@@ -35,7 +35,7 @@ const Profile = () => {
     return (
         <Layout>
             <Head>
-                <title>{session?.user?.name} | Orientation Hackathon</title>
+                <title>{session?.user?.name} | Orientation Hackathon</title> 
             </Head>
             <main className="flex h-full w-full flex-1 flex-col items-stretch justify-center gap-16 px-14 py-8">
                 <div className="flex w-full flex-row gap-8">
@@ -43,7 +43,7 @@ const Profile = () => {
                     <div className="flex w-full flex-col items-start gap-4">
                         <h1 className="text-4xl font-bold">
                             <span className="text-indigo-500">
-                                {session?.user?.name}
+                                {session?.user?.name} 
                             </span>
                             <br />
                             <span className="text">Software Engineer</span>
@@ -229,21 +229,25 @@ const Profile = () => {
                             >
                                 Period
                             </label>
-                            <div className="flex w-2/3 flex-row basis- items-center gap-3">
-                                <input
-                                    className="w-3/4 flex-grow appearance-none rounded-full border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
-                                    type="month"
-                                    id="from"
-                                    name="from"
-                                />
-                                <div className="h-0.5 w-12 bg-gray-900"></div>
-                                {/* Gap between `from` and `to`, represents a 2-pixel high line. */}
-                                <input
-                                    className="w-3/4 flex-grow appearance-none rounded-full border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
-                                    type="month"
-                                    id="to"
-                                    name="to"
-                                />
+                            <div className="flex w-2/3 flex-row flex-wrap items-center gap-3">
+                                <div className="flex items-center gap-5 flex-grow basis-5/12">
+                                    <p className="w-12"> From </p>
+                                    <input
+                                        className="w-full appearance-none rounded-full border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
+                                        type="month"
+                                        id="from"
+                                        name="from"
+                                    />
+                                </div>
+                                <div className="flex items-center gap-5 flex-grow basis-5/12">
+                                    <p  className="w-12"> To </p>
+                                    <input
+                                        className="w-full appearance-none rounded-full border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
+                                        type="month"
+                                        id="to"
+                                        name="to"
+                                    />
+                                </div>
                             </div>
                         </div>
                         <button
@@ -292,21 +296,25 @@ const Profile = () => {
                             >
                                 Period
                             </label>
-                            <div className="flex w-2/3 flex-row items-center gap-3">
-                                <input
-                                    className="w-3/4 appearance-none rounded-full border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
-                                    type="month"
-                                    id="from"
-                                    name="from"
-                                />
-                                <div className="h-0.5 w-12 bg-gray-900"></div>
-                                {/* Gap between `from` and `to`, represents a 2-pixel high line. */}
-                                <input
-                                    className="w-3/4 appearance-none rounded-full border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
-                                    type="month"
-                                    id="to"
-                                    name="to"
-                                />
+                            <div className="flex w-2/3 flex-row flex-wrap items-center gap-3">
+                                <div className="flex items-center gap-5 flex-grow basis-5/12">
+                                    <p className="w-12"> From </p>
+                                    <input
+                                        className="w-full appearance-none rounded-full border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
+                                        type="month"
+                                        id="from"
+                                        name="from"
+                                    />
+                                </div>
+                                <div className="flex items-center gap-5 flex-grow basis-5/12">
+                                    <p  className="w-12"> To </p>
+                                    <input
+                                        className="w-full appearance-none rounded-full border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
+                                        type="month"
+                                        id="to"
+                                        name="to"
+                                    />
+                                </div>
                             </div>
                         </div>
                         <div className="flex w-full flex-row items-center justify-between">
