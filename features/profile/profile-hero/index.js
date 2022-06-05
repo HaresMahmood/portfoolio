@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from '../../../components/image';
 import { useSession } from 'next-auth/react';
 
 const ProfileHero = () => {
@@ -6,7 +7,12 @@ const ProfileHero = () => {
 
     return (
         <div className="flex w-full flex-row items-center gap-8">
-            <div className="h-32 aspect-square rounded-full bg-gray-900">  </div>
+            <Image
+                className="h-32 aspect-square"
+                src={session.user.image}
+                alt=""
+                style={{ borderRadius: '100%' }}
+            />
             <div className="flex w-full flex-col items-start gap-4">
                 <h1 className="text-4xl font-bold">
                     <span className="text-indigo-500">
