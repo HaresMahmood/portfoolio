@@ -21,7 +21,7 @@ const Header = () => {
                             type="button"
                             href="/signin"
                         >
-                            Sign in
+                            Sign In
                         </button>
                     </Link>
                     <Link href="/signin">
@@ -37,24 +37,12 @@ const Header = () => {
         }
 
         if (isLoading) {
-            return (
-                <div className="flex h-8 items-center">
-                    <p className="text-sm">Loading...</p>
-                </div>
-            );
+            return <p className="text-sm">Loading...</p>;
         }
 
         return (
             <div className="flex items-center space-x-3">
-                <div className="rounded-full bg-indigo-500 ring-2 ring-indigo-500 ring-offset-2 ring-offset-white">
-                    <Image
-                        className="h-8 w-8"
-                        src={user.image}
-                        alt=""
-                        style={{ borderRadius: '100%' }}
-                    />
-                </div>
-                <p className="hidden sm:inline">
+                <p className="hidden text-sm sm:inline">
                     Hi, <span className="font-semibold">{profile.name}</span>
                 </p>
                 <Link href="/api/auth/signout" passHref>
@@ -62,15 +50,23 @@ const Header = () => {
                         className="text-xs text-gray-600 hover:text-gray-800"
                         onClick={onSignOutClick}
                     >
-                        Sign out
+                        Sign Out
                     </a>
                 </Link>
+                <div className="h-7 rounded-full ring-2 ring-indigo-500 ring-offset-2">
+                    <Image
+                        className="aspect-square h-full"
+                        src={user.image}
+                        alt=""
+                        style={{ borderRadius: '100%' }}
+                    />
+                </div>
             </div>
         );
     };
 
     return (
-        <nav className="flex w-full flex-row justify-between bg-white px-8 py-5">
+        <nav className="flex h-16 w-full flex-row justify-between bg-white px-8 py-5">
             <div className="flex items-center space-x-3">
                 <Image
                     className="h-7"
