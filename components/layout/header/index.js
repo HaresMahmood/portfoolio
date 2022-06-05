@@ -1,10 +1,10 @@
-import { signOut, useSession } from 'next-auth/react';
-
 import Image from '../../image';
 import Link from 'next/link';
+import { signOut } from 'next-auth/react';
+import { useUserProfile } from '../../../hooks/use-user-profile';
 
 const Header = () => {
-    const { data: session } = useSession();
+    const { user, isUnauthenticated, profile, isLoading } = useUserProfile();
 
     const onSignOutClick = e => {
         e.preventDefault();
@@ -12,12 +12,12 @@ const Header = () => {
     };
 
     const renderRightSideComponent = () => {
-        if (!session) {
+        if (isUnauthenticated) {
             return (
-                <div className="flex items-center space-x-6">
+                <div className="flex h-8 items-center space-x-6">
                     <Link href="/signin">
                         <button
-                            className="text-gray-600 hover:text-gray-800"
+                            className="text-sm text-gray-600 hover:text-gray-800"
                             type="button"
                             href="/signin"
                         >
@@ -36,34 +36,37 @@ const Header = () => {
             );
         }
 
-        if (session?.user) {
+        if (isLoading) {
             return (
-                <div className="flex items-center space-x-3">
-                    <div className="rounded-full bg-indigo-500 ring-2 ring-indigo-500 ring-offset-2 ring-offset-white">
-                        <Image
-                            className="h-8 w-8"
-                            src={session.user.image}
-                            alt=""
-                            style={{ borderRadius: '100%' }}
-                        />
-                    </div>
-                    <p className="hidden sm:inline">
-                        Hi,{' '}
-                        <span className="font-semibold">
-                            {session.user.name}
-                        </span>
-                    </p>
-                    <Link href="/api/auth/signout" passHref>
-                        <a
-                            className="text-xs text-gray-600 hover:text-gray-800"
-                            onClick={onSignOutClick}
-                        >
-                            Sign out
-                        </a>
-                    </Link>
+                <div className="flex h-8 items-center">
+                    <p className="text-sm">Loading...</p>
                 </div>
             );
         }
+
+        return (
+            <div className="flex items-center space-x-3">
+                <div className="rounded-full bg-indigo-500 ring-2 ring-indigo-500 ring-offset-2 ring-offset-white">
+                    <Image
+                        className="h-8 w-8"
+                        src={user.image}
+                        alt=""
+                        style={{ borderRadius: '100%' }}
+                    />
+                </div>
+                <p className="hidden sm:inline">
+                    Hi, <span className="font-semibold">{profile.name}</span>
+                </p>
+                <Link href="/api/auth/signout" passHref>
+                    <a
+                        className="text-xs text-gray-600 hover:text-gray-800"
+                        onClick={onSignOutClick}
+                    >
+                        Sign out
+                    </a>
+                </Link>
+            </div>
+        );
     };
 
     return (
