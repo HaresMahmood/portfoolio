@@ -21,7 +21,7 @@ const Header = () => {
                             type="button"
                             href="/signin"
                         >
-                            Sign in
+                            Sign In
                         </button>
                     </Link>
                     <Link href="/signin">
@@ -38,16 +38,8 @@ const Header = () => {
 
         if (session?.user) {
             return (
-                <div className="flex items-center space-x-3">
-                    <div className="rounded-full bg-indigo-500 ring-2 ring-indigo-500 ring-offset-2 ring-offset-white">
-                        <Image
-                            className="h-8 w-8"
-                            src={session.user.image}
-                            alt=""
-                            style={{ borderRadius: '100%' }}
-                        />
-                    </div>
-                    <p className="hidden sm:inline">
+                <div className="flex items-center gap-3">
+                    <p className="text-sm hidden sm:inline">
                         Hi,{' '}
                         <span className="font-semibold">
                             {session.user.name}
@@ -61,13 +53,21 @@ const Header = () => {
                             Sign out
                         </a>
                     </Link>
+                    <div className="h-full rounded-full ring-2 ring-indigo-500 ring-offset-2">
+                        <Image
+                            className="h-full aspect-square"
+                            src={session.user.image}
+                            alt=""
+                            style={{ borderRadius: '100%' }}
+                        />
+                    </div>
                 </div>
             );
         }
     };
 
     return (
-        <nav className="flex w-full flex-row justify-between bg-white px-8 py-5">
+        <nav className="flex w-full h-16 flex-row justify-between bg-white px-8 py-5">
             <div className="flex items-center space-x-3">
                 <Image
                     className="h-7"
