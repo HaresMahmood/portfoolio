@@ -14,6 +14,13 @@ const options = {
         session: async ({ session, user }) => {
             if (session?.user) {
                 session.user.id = user.id;
+
+                // Create user profile if it doesn't exist
+                await prisma.profile.upsert({
+                    where: { userId: user.id },
+                    update: {},
+                    create: { userId: user.id }
+                });
             }
 
             return session;

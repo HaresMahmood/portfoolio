@@ -5,31 +5,31 @@ import Layout from '../components/layout';
 import ProfileForm from '../features/profile/profile-form';
 import ProfileHero from '../features/profile/profile-hero';
 import { useRouter } from 'next/router';
-import { useSession } from 'next-auth/react';
+import { useUserProfile } from '../hooks/use-user-profile';
 
-const Profile = () => {
+const ProfilePage = () => {
     const router = useRouter();
-    const { data: session, status } = useSession();
+    const { profile, isUnauthenticated, isLoading } = useUserProfile();
 
     const redirect = useCallback(async () => {
-        if (status === 'unauthenticated') {
+        if (isUnauthenticated) {
             await router.push('/404');
         }
-    }, [router, status]);
+    }, [isUnauthenticated]);
 
     useEffect(() => {
         redirect();
     }, [redirect]);
 
-    if (status === 'loading' || status === 'unauthenticated') {
+    if (isLoading) {
         return (
             <Layout>
                 <Head>
                     <title>Loading...</title>
                 </Head>
-                <div className="flex w-full flex-row gap-8">
+                <main className="flex h-full w-full flex-1 flex-col items-stretch justify-center gap-16 px-14 py-8">
                     <p>Loading...</p>
-                </div>
+                </main>
             </Layout>
         );
     }
@@ -37,7 +37,7 @@ const Profile = () => {
     return (
         <Layout>
             <Head>
-                <title>{session.user.name} | Portfoolio</title>
+                <title>{profile.name} | Portfoolio</title>
             </Head>
             <main className="flex h-full w-full flex-1 flex-col items-stretch justify-center gap-16 px-14 py-8">
                 <ProfileHero />
@@ -47,4 +47,4 @@ const Profile = () => {
     );
 };
 
-export default Profile;
+export default ProfilePage;

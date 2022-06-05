@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Image from '../components/image';
 import Layout from '../components/layout';
 
-const Home = () => {
+const HomePage = () => {
     return (
         <Layout>
             <Head>
@@ -42,4 +42,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default HomePage;

@@ -1,10 +1,10 @@
-import { signOut, useSession } from 'next-auth/react';
-
 import Image from '../../image';
 import Link from 'next/link';
+import { signOut } from 'next-auth/react';
+import { useUserProfile } from '../../../hooks/use-user-profile';
 
 const Header = () => {
-    const { data: session } = useSession();
+    const { user, isUnauthenticated, profile, isLoading } = useUserProfile();
 
     const onSignOutClick = e => {
         e.preventDefault();
@@ -12,12 +12,12 @@ const Header = () => {
     };
 
     const renderRightSideComponent = () => {
-        if (!session) {
+        if (isUnauthenticated) {
             return (
-                <div className="flex items-center space-x-6">
+                <div className="flex h-8 items-center space-x-6">
                     <Link href="/signin">
                         <button
-                            className="text-gray-600 hover:text-gray-800"
+                            className="text-sm text-gray-600 hover:text-gray-800"
                             type="button"
                             href="/signin"
                         >
@@ -36,38 +36,37 @@ const Header = () => {
             );
         }
 
-        if (session?.user) {
-            return (
-                <div className="flex items-center gap-3">
-                    <p className="text-sm hidden sm:inline">
-                        Hi,{' '}
-                        <span className="font-semibold">
-                            {session.user.name}
-                        </span>
-                    </p>
-                    <Link href="/api/auth/signout" passHref>
-                        <a
-                            className="text-xs text-gray-600 hover:text-gray-800"
-                            onClick={onSignOutClick}
-                        >
-                            Sign Out
-                        </a>
-                    </Link>
-                    <div className="h-7 rounded-full ring-2 ring-indigo-500 ring-offset-2">
-                        <Image
-                            className="h-full aspect-square"
-                            src={session.user.image}
-                            alt=""
-                            style={{ borderRadius: '100%' }}
-                        />
-                    </div>
-                </div>
-            );
+        if (isLoading) {
+            return <p className="text-sm">Loading...</p>;
         }
+
+        return (
+            <div className="flex items-center space-x-3">
+                <p className="hidden text-sm sm:inline">
+                    Hi, <span className="font-semibold">{profile.name}</span>
+                </p>
+                <Link href="/api/auth/signout" passHref>
+                    <a
+                        className="text-xs text-gray-600 hover:text-gray-800"
+                        onClick={onSignOutClick}
+                    >
+                        Sign Out
+                    </a>
+                </Link>
+                <div className="h-7 rounded-full ring-2 ring-indigo-500 ring-offset-2">
+                    <Image
+                        className="aspect-square h-full"
+                        src={user.image}
+                        alt=""
+                        style={{ borderRadius: '100%' }}
+                    />
+                </div>
+            </div>
+        );
     };
 
     return (
-        <nav className="flex w-full h-16 flex-row justify-between bg-white px-8 py-5">
+        <nav className="flex h-16 w-full flex-row justify-between bg-white px-8 py-5">
             <div className="flex items-center space-x-3">
                 <Image
                     className="h-7"
