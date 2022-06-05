@@ -66,6 +66,7 @@ model VerificationToken {
 model Profile {
   id           String   @id @default(cuid())
   userId       String
+  name         String   @default("")
   title        String   @default("")
   about        String   @default("")
   phone        String   @default("")
