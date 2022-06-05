@@ -50,10 +50,10 @@ const Header = () => {
                             className="text-xs text-gray-600 hover:text-gray-800"
                             onClick={onSignOutClick}
                         >
-                            Sign out
+                            Sign Out
                         </a>
                     </Link>
-                    <div className="h-full rounded-full ring-2 ring-indigo-500 ring-offset-2">
+                    <div className="h-7 rounded-full ring-2 ring-indigo-500 ring-offset-2">
                         <Image
                             className="h-full aspect-square"
                             src={session.user.image}
