@@ -45,11 +45,10 @@ model User {
   email         String?   @unique
   emailVerified DateTime? @map("email_verified")
   image         String?
-  title         String?
-  about         String?
   createdAt     DateTime  @default(now()) @map(name: "created_at")
   updatedAt     DateTime  @updatedAt @map(name: "updated_at")
   accounts      Account[]
+  profile       Profile?
   sessions      Session[]
 
   @@map(name: "users")
@@ -62,4 +61,49 @@ model VerificationToken {
 
   @@unique([identifier, token])
   @@map("verificationtokens")
+}
+
+model Profile {
+  id           String   @id @default(cuid())
+  userId       String
+  title        String   @default("")
+  about        String   @default("")
+  phone        String   @default("")
+  country      String   @default("")
+  city         String   @default("")
+  linkedin     String   @default("")
+  twitter      String   @default("")
+  facebook     String   @default("")
+  // education    Education[]
+  // experience   Experience[]
+  // projects     Project[]
+  user         User @relation(fields: [userId], references: [id])
+}
+
+model Education {
+  id          String   @id
+  profileId   String
+  school      String   @default("")
+  course      String   @default("")
+  period      Json     @default("{\"from\": \"\", \"to\": \"\"}")
+  // profile     Profile  @relation(fields: [profileId], references: [id])
+}
+
+model Experience {
+  id          String   @id
+  profileId   String 
+  company     String   @default("")
+  location    String   @default("")
+  period      Json     @default("{\"from\": \"\", \"to\": \"\"}")
+  description String   @default("")
+  // profile     Profile  @relation(fields: [profileId], references: [id])
+}
+
+model Project {
+  id          String   @id
+  profileId   String
+  project     String   @default("")
+  respository String   @default("")
+  description String   @default("")
+  // profile     Profile  @relation(fields: [profileId], references: [id])
 }
