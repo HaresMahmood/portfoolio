@@ -24,7 +24,6 @@ const Header = () => {
                             Sign in
                         </button>
                     </Link>
-
                     <Link href="/signin">
                         <button
                             className="rounded-full border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
@@ -40,7 +39,7 @@ const Header = () => {
         if (session?.user) {
             return (
                 <div className="flex items-center space-x-3">
-                    <div className="rounded-full bg-gray-800 ring-2 ring-gray-800 ring-offset-2 ring-offset-white">
+                    <div className="rounded-full bg-indigo-500 ring-2 ring-indigo-500 ring-offset-2 ring-offset-white">
                         <Image
                             className="h-8 w-8"
                             src={session.user.image}
