@@ -1,5 +1,4 @@
 import { Form, Formik } from 'formik';
-
 import ProfileFormSection from './profile-form-section';
 import { profileFormSchema } from '../../../constants/profile-form-schema';
 import profileFormTemplate from '../../../constants/profile-form-template';
@@ -17,7 +16,7 @@ const ProfileForm = () => {
             validationSchema={profileFormSchema}
         >
             {({ values }) => (
-                <Form className="flex w-full flex-row flex-wrap items-start gap-x-40 gap-y-12">
+                <Form id="form" className="grid grid-flow-row w-full gap-x-40 gap-y-12 lg:grid-cols-2 lg:grid-flow-row-dense">
                     {profileFormTemplate.map(section => (
                         <ProfileFormSection
                             defaultValues={values}
@@ -25,12 +24,6 @@ const ProfileForm = () => {
                             {...section}
                         />
                     ))}
-                    <button
-                        className="rounded-full border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
-                        type="submit"
-                    >
-                        Save changes
-                    </button>
                 </Form>
             )}
         </Formik>
