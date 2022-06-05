@@ -2,9 +2,9 @@ const user = {
     name: 'John Doe',
     title: 'Software Engineer',
     about: 'Lorem ipsum',
-    phone: '',
     country: 'Mexico',
     city: 'Mexico City',
+    phone: '613028688',
     linkedin: 'https://linkedin.com',
     twitter: 'https://twitter.com',
     facebook: 'https://facebook.com',
@@ -31,13 +31,13 @@ const user = {
     experience: [
         {
             id: '4fc2868f-35b5-44c8-ba27-d7da18f2d383',
-            company: '',
-            location: '',
+            company: 'Microsoft',
+            location: 'Bellevue, WA',
             period: {
-                from: '',
-                to: ''
+                from: '2021-06',
+                to: '2021-08'
             },
-            description: ''
+            description: 'Lorem ipsum'
         }
     ],
     projects: [

@@ -9,6 +9,16 @@ const authHandler = (req, res) => NextAuth(req, res, options);
 export default authHandler;
 
 const options = {
+    adapter: PrismaAdapter(prisma),
+    callbacks: {
+        session: async ({ session, user }) => {
+            if (session?.user) {
+                session.user.id = user.id;
+            }
+
+            return session;
+        }
+    },
     pages: {
         signIn: '/signin'
     },
@@ -26,9 +36,8 @@ const options = {
             clientSecret: process.env.GOOGLE_SECRET
         })
     ],
+    secret: process.env.SECRET,
     theme: {
         colorScheme: 'light'
-    },
-    adapter: PrismaAdapter(prisma),
-    secret: process.env.SECRET
+    }
 };
