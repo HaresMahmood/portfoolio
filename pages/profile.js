@@ -222,16 +222,16 @@ const Profile = () => {
                                 name="course"
                             />
                         </div>
-                        <div className="flex w-full flex-row items-center justify-between">
+                        <div className="flex w-full flex-row flex-wrap items-center justify-between">
                             <label
                                 className="w-28 font-medium text-gray-900"
                                 htmlFor="from"
                             >
                                 Period
                             </label>
-                            <div className="flex w-2/3 flex-row items-center gap-3">
+                            <div className="flex w-2/3 flex-row basis- items-center gap-3">
                                 <input
-                                    className="w-3/4 appearance-none rounded-full border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
+                                    className="w-3/4 flex-grow appearance-none rounded-full border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
                                     type="month"
                                     id="from"
                                     name="from"
@@ -239,7 +239,7 @@ const Profile = () => {
                                 <div className="h-0.5 w-12 bg-gray-900"></div>
                                 {/* Gap between `from` and `to`, represents a 2-pixel high line. */}
                                 <input
-                                    className="w-3/4 appearance-none rounded-full border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
+                                    className="w-3/4 flex-grow appearance-none rounded-full border-2 border-gray-500 bg-transparent px-4 py-2 font-medium text-gray-500 focus:text-gray-900"
                                     type="month"
                                     id="to"
                                     name="to"
