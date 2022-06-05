@@ -9,7 +9,7 @@ const ProfileHero = () => {
         <div className="flex flex-row flex-wrap items-center justify-between w-full gap-10"> 
             <div className="flex flex-row items-center flex-grow gap-8">
                 <Image
-                    className="h-32 aspect-square"
+                    className="h-32 aspect-square hidden sm:inline"
                     src={session.user.image}
                     alt=""
                     style={{ borderRadius: '100%' }}
