@@ -1,6 +1,7 @@
 import { FieldArray } from 'formik';
 import { Fragment } from 'react';
 import ProfileFormField from '../profile-form-field';
+import Button from '../../../../components/button';
 import cuid from 'cuid';
 
 const Field = ({ field, name }) => (
@@ -52,12 +53,20 @@ const ProfileFormSubsection = ({
                                             />
                                         ))}
                                         <button
-                                            className="font-semibold text-red-400 hover:text-red-600"
-                                            onClick={() => remove(index)}
+                                            className="font-semibold "
+                                            
                                             type="button"
                                         >
                                             - {removeItemLabel}
                                         </button>
+
+                                        <Button
+                                            className="bg-none text-red-400 hover:text-red-600 hover:bg-gray-100 hover:ring-0"
+                                            onClick={() => remove(index)}
+                                            type="button"
+                                        >
+                                            - {removeItemLabel}
+                                        </Button>
                                     </Fragment>
                                 ))}
                             <button
