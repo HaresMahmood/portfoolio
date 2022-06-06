@@ -1,9 +1,12 @@
+import Button from '../../button';
 import Image from '../../image';
 import Link from 'next/link';
 import { signOut } from 'next-auth/react';
+import { useRouter } from 'next/router';
 import { useUserProfile } from '../../../hooks/use-user-profile';
 
 const Header = () => {
+    const router = useRouter();
     const { user, isUnauthenticated, profile, isLoading } = useUserProfile();
 
     const onSignOutClick = e => {
@@ -12,6 +15,10 @@ const Header = () => {
     };
 
     const renderRightSideComponent = () => {
+        if (router.asPath === '/signin') {
+            return null;
+        }
+
         if (isUnauthenticated) {
             return (
                 <div className="flex h-8 items-center space-x-6">
@@ -25,12 +32,12 @@ const Header = () => {
                         </button>
                     </Link>
                     <Link href="/signin">
-                        <button
-                            className="rounded-full border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+                        <Button
+                            className="dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
                             type="button"
                         >
                             Get Started
-                        </button>
+                        </Button>
                     </Link>
                 </div>
             );
@@ -43,7 +50,7 @@ const Header = () => {
         return (
             <div className="flex items-center space-x-3">
                 <p className="hidden text-sm sm:inline">
-                    Hi, <span className="font-semibold">{profile.name}</span>
+                    <span className="font-semibold">{profile.name}</span>
                 </p>
                 <Link href="/api/auth/signout" passHref>
                     <a
@@ -67,15 +74,17 @@ const Header = () => {
 
     return (
         <nav className="flex h-16 w-full flex-row justify-between bg-white px-8 py-5">
-            <div className="flex items-center space-x-3">
-                <Image
-                    className="h-7"
-                    src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
-                    alt="Workflow"
-                />
-                <h3 className="text-lg font-semibold">Portfoolio</h3>
-            </div>
-
+            <Link href="/">
+                <a className="flex items-center space-x-3">
+                    <Image
+                        className="h-7"
+                        src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
+                        alt="Workflow"
+                        priority
+                    />
+                    <h3 className="text-lg font-semibold">Portfoolio</h3>
+                </a>
+            </Link>
             {renderRightSideComponent()}
         </nav>
     );

@@ -1,6 +1,9 @@
+import Button from '../components/button';
 import Head from 'next/head';
 import Image from '../components/image';
 import Layout from '../components/layout';
+import Link from 'next/link';
+import { getSession } from 'next-auth/react';
 
 const HomePage = () => {
     return (
@@ -24,16 +27,16 @@ const HomePage = () => {
                         Mauris vehicula quis lacus eleifend lacinia. Aenean in
                         maximus augue.
                     </p>
-                    <button
-                        className="rounded-full border border-gray-300 bg-white px-4 py-2 text-sm font-semibold text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
-                        type="button"
-                    >
-                        Get Started
-                    </button>
+                    <Link href="/signin">
+                        <Button className="dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-700">
+                            Get Started
+                        </Button>
+                    </Link>
                 </div>
                 <Image
                     alt=""
                     className="h-72 w-full"
+                    priority
                     src="/undraw_online_cv_re_gn0a.svg"
                 />
             </main>
@@ -42,3 +45,19 @@ const HomePage = () => {
 };
 
 export default HomePage;
+
+export const getServerSideProps = async context => {
+    const session = await getSession(context);
+
+    if (session) {
+        return {
+            props: { session },
+            redirect: {
+                destination: '/profile',
+                permanent: false
+            }
+        };
+    }
+
+    return { props: { session } };
+};
