@@ -15,7 +15,7 @@ const ProfilePage = () => {
         if (isUnauthenticated) {
             await router.push('/404');
         }
-    }, [isUnauthenticated]);
+    }, [isUnauthenticated, router]);
 
     useEffect(() => {
         redirect();
