@@ -1,9 +1,15 @@
+import { BsGithub, BsGoogle } from 'react-icons/bs';
 import { getProviders, getSession, signIn } from 'next-auth/react';
 
 import Button from '../components/button';
 import Head from 'next/head';
 import Image from '../components/image';
 import Layout from '../components/layout';
+
+const providerMap = {
+    GitHub: <BsGithub />,
+    Google: <BsGoogle />
+};
 
 const SignInPage = ({ providers }) => (
     <Layout>
@@ -27,11 +33,11 @@ const SignInPage = ({ providers }) => (
                     </p>
                 </div>
 
-                <div className="flex w-full justify-center gap-3 border-t-2 pt-7">
+                <div className="flex justify-center gap-3 border-t-2 pt-7">
                     <>
                         {Object.values(providers).map(provider => (
                             <Button
-                                className="bg-gray-800 w-full text-white hover:bg-gray-700"
+                                className="flex w-full flex-row items-center justify-center gap-2 bg-gray-800 text-white hover:bg-gray-700"
                                 key={provider.name}
                                 onClick={() =>
                                     signIn(provider.id, {
@@ -39,7 +45,7 @@ const SignInPage = ({ providers }) => (
                                     })
                                 }
                             >
-                                
+                                {providerMap[provider.name]}
                                 {provider.name}
                             </Button>
                         ))}
