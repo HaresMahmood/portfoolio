@@ -24,7 +24,7 @@ const Header = () => {
             return (
                 <Link href="/signin">
                     <Button
-                        className="bg-none text-gray600 hover:bg-gray-100"
+                        className="bg-none text-gray-600 hover:text-gray-800 hover:bg-gray-100"
                         type="button"
                     >
                         Sign In
@@ -43,12 +43,13 @@ const Header = () => {
                     <span className="font-semibold">{profile.name}</span>
                 </p>
                 <Link href="/api/auth/signout" passHref>
-                    <a
-                        className="text-xs text-gray-600 hover:text-gray-800"
+                    <Button
+                        className="text-xs bg-none text-gray-600 hover:text-gray-800 hover:bg-gray-100"
                         onClick={onSignOutClick}
+                        type="button"
                     >
                         Sign Out
-                    </a>
+                    </Button>
                 </Link>
                 <div className="h-7 rounded-full ring-2 ring-indigo-500 ring-offset-2">
                     <Image
