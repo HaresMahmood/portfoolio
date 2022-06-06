@@ -30,22 +30,23 @@ export const profileFormSchema = Yup.object().shape({
     facebook: Yup.string().url('Must be a valid URL'),
     education: Yup.array().of(
         Yup.object().shape({
-            school: Yup.string().required('Required'),
-            course: Yup.string().required('Required'),
+            school: Yup.string(),
+            course: Yup.string(),
             period: periodValidationRule
         })
     ),
     experience: Yup.array().of(
         Yup.object().shape({
-            company: Yup.string().required('Required'),
-            location: Yup.string().required('Required'),
+            role: Yup.string(),
+            company: Yup.string(),
+            location: Yup.string(),
             period: periodValidationRule,
             description: Yup.string()
         })
     ),
     projects: Yup.array().of(
         Yup.object().shape({
-            project: Yup.string().required('Required'),
+            project: Yup.string(),
             repository: Yup.string(),
             description: Yup.string()
         })

@@ -68,6 +68,7 @@ const profileFormTemplate = [
             {
                 id: 'experience',
                 fields: [
+                    { id: 'role', label: 'Role', type: 'text' },
                     { id: 'company', label: 'Company', type: 'text' },
                     { id: 'location', label: 'Location', type: 'text' },
                     {

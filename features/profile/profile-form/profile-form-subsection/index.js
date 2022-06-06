@@ -51,15 +51,13 @@ const ProfileFormSubsection = ({
                                                 name={`${id}.${index}.${field.id}`}
                                             />
                                         ))}
-                                        {defaultValues.length > 1 && (
-                                            <button
-                                                className="font-semibold text-red-400 hover:text-red-600"
-                                                onClick={() => remove(index)}
-                                                type="button"
-                                            >
-                                                - {removeItemLabel}
-                                            </button>
-                                        )}
+                                        <button
+                                            className="font-semibold text-red-400 hover:text-red-600"
+                                            onClick={() => remove(index)}
+                                            type="button"
+                                        >
+                                            - {removeItemLabel}
+                                        </button>
                                     </Fragment>
                                 ))}
                             <button

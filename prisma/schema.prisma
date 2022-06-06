@@ -41,6 +41,7 @@ model Session {
 
 model User {
   id            String    @id @default(cuid())
+  profileId     String?
   name          String?
   email         String?   @unique
   emailVerified DateTime? @map("email_verified")
@@ -48,7 +49,7 @@ model User {
   createdAt     DateTime  @default(now()) @map(name: "created_at")
   updatedAt     DateTime  @updatedAt @map(name: "updated_at")
   accounts      Account[]
-  profile       Profile?
+  profile       Profile?  @relation(fields: [profileId], references: [id])
   sessions      Session[]
 
   @@map(name: "users")
@@ -65,8 +66,11 @@ model VerificationToken {
 
 model Profile {
   id           String   @id @default(cuid())
-  userId       String
-  title        String   @default("")
+  userId       String   @unique
+  name         String   @default("")
+  image        String?   
+  email        String?
+  title        String   @default("Example Job Title")
   about        String   @default("")
   phone        String   @default("")
   country      String   @default("")
@@ -74,36 +78,8 @@ model Profile {
   linkedin     String   @default("")
   twitter      String   @default("")
   facebook     String   @default("")
-  // education    Education[]
-  // experience   Experience[]
-  // projects     Project[]
-  user         User @relation(fields: [userId], references: [id])
-}
-
-model Education {
-  id          String   @id
-  profileId   String
-  school      String   @default("")
-  course      String   @default("")
-  period      Json     @default("{\"from\": \"\", \"to\": \"\"}")
-  // profile     Profile  @relation(fields: [profileId], references: [id])
-}
-
-model Experience {
-  id          String   @id
-  profileId   String 
-  company     String   @default("")
-  location    String   @default("")
-  period      Json     @default("{\"from\": \"\", \"to\": \"\"}")
-  description String   @default("")
-  // profile     Profile  @relation(fields: [profileId], references: [id])
-}
-
-model Project {
-  id          String   @id
-  profileId   String
-  project     String   @default("")
-  respository String   @default("")
-  description String   @default("")
-  // profile     Profile  @relation(fields: [profileId], references: [id])
+  education    Json[]
+  experience   Json[]
+  projects     Json[]
+  user         User?
 }
