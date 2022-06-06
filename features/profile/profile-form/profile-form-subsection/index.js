@@ -62,7 +62,7 @@ const ProfileFormSubsection = ({
                                     </Fragment>
                                 ))}
                             <Button
-                                className="bg-none text-gray600 hover:bg-gray-100"
+                                className="bg-none text-gray-600 hover:bg-gray-100"
                                 onClick={() => push(emptyItem)}
                                 type="button"
                             >

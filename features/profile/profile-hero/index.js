@@ -28,7 +28,7 @@ const ProfileHero = () => {
 
             <div className="flex w-fit gap-3">
                 <Button
-                    className="dark:bg-indigo-500 dark:text-white dark:hover:bg-indigo-400 dark:focus:ring-gray-700"
+                    className="bg-indigo-500 ring-gray-800 text-white hover:bg-indigo-400"
                     type="submit"
                     form="form"
                 >
@@ -37,7 +37,7 @@ const ProfileHero = () => {
                 <Link href={`/${profile.id}`} passHref>
                     <a target="_blank">
                         <Button
-                            className="dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+                            className="bg-gray-800 text-white border-gray-600"
                             type="button"
                         >
                             View Portfolio
