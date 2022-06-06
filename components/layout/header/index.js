@@ -44,7 +44,7 @@ const Header = () => {
                 </p>
                 <Link href="/api/auth/signout" passHref>
                     <Button
-                        className="text-xs bg-none text-gray-600 hover:text-gray-800 hover:bg-gray-100"
+                        className="text-xs p-1 bg-none text-gray-600 hover:text-gray-800 hover:bg-gray-100"
                         onClick={onSignOutClick}
                         type="button"
                     >
