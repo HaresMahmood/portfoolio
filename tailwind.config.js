@@ -1,3 +1,6 @@
+
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
     content: [
         './components/**/*.{js,ts,jsx,tsx}',
@@ -9,8 +12,9 @@ module.exports = {
             sans: ['"Work Sans"']
         },
         screens: {
-            'maxmd': {'max': '767px'}
-        }
+            'maxmd': {'max': '767px'},
+            ...defaultTheme.screens,
+        },
     },
     plugins: []
 };
