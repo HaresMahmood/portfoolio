@@ -21,25 +21,14 @@ const Header = () => {
 
         if (isUnauthenticated) {
             return (
-                <div className="flex h-8 items-center space-x-6">
-                    <Link href="/signin">
-                        <button
-                            className="text-sm text-gray-600 hover:text-gray-800"
-                            type="button"
-                            href="/signin"
-                        >
-                            Sign In
-                        </button>
-                    </Link>
-                    <Link href="/signin">
-                        <Button
-                            className="dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
-                            type="button"
-                        >
-                            Get Started
-                        </Button>
-                    </Link>
-                </div>
+                <Link href="/signin">
+                    <Button
+                        className="bg-none text-gray600 hover:bg-gray-100"
+                        type="button"
+                    >
+                        Sign In
+                    </Button>
+                </Link>
             );
         }
 
@@ -60,7 +49,7 @@ const Header = () => {
                         Sign Out
                     </a>
                 </Link>
-                <div className="h-7 rounded-full ring-2 ring-indigo-500 ring-offset-2">
+                <div className="h-7 rounded-full ring-2 ring-indigo-500">
                     <Image
                         className="aspect-square h-full"
                         src={profile.image}
@@ -73,7 +62,7 @@ const Header = () => {
     };
 
     return (
-        <nav className="flex h-16 w-full flex-row justify-between bg-white px-8 py-5">
+        <nav className="flex h-16 w-full flex-row justify-between items-center bg-white px-8 py-5">
             <Link href="/">
                 <a className="flex items-center space-x-3">
                     <Image

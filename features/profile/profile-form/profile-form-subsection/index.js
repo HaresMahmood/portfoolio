@@ -52,12 +52,20 @@ const ProfileFormSubsection = ({
                                             />
                                         ))}
                                         <button
-                                            className="font-semibold text-red-400 hover:text-red-600"
-                                            onClick={() => remove(index)}
+                                            className="font-semibold "
+                                            
                                             type="button"
                                         >
                                             - {removeItemLabel}
                                         </button>
+
+                                        <Button
+                                            className="bg-none text-red-400 hover:text-red-600 hover:bg-gray-100"
+                                            onClick={() => remove(index)}
+                                            type="button"
+                                        >
+                                            - {removeItemLabel}
+                                        </Button>
                                     </Fragment>
                                 ))}
                             <button
