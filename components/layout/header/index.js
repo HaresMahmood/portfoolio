@@ -68,7 +68,7 @@ const Header = () => {
             <Link href="/">
                 <a className="flex items-center space-x-3">
                     <Image
-                        className="h-7"
+                        className="h-7 aspect-square"
                         src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
                         alt="Workflow"
                         priority
