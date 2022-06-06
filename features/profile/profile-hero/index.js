@@ -1,16 +1,17 @@
 import Button from '../../../components/button';
 import Image from '../../../components/image';
+import Link from 'next/link';
 import { useUserProfile } from '../../../hooks/use-user-profile';
 
 const ProfileHero = () => {
-    const { user, profile } = useUserProfile();
+    const { profile } = useUserProfile();
 
     return (
         <div className="flex w-full flex-row flex-wrap items-center justify-between gap-10">
             <div className="flex flex-grow flex-row items-center gap-8">
                 <Image
                     className="hidden aspect-square h-32 sm:inline"
-                    src={user.image}
+                    src={profile.image}
                     alt=""
                     priority
                     style={{ borderRadius: '100%' }}
@@ -21,7 +22,7 @@ const ProfileHero = () => {
                         <br />
                         <span className="text">{profile.title}</span>
                     </h1>
-                    <p className="text-gray-500">{user.email}</p>
+                    <p className="text-gray-500">{profile.email}</p>
                 </div>
             </div>
 
@@ -33,12 +34,16 @@ const ProfileHero = () => {
                 >
                     Save Changes
                 </Button>
-                <Button
-                    className="dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
-                    type="button"
-                >
-                    View Portfolio
-                </Button>
+                <Link href={`/${profile.id}`} passHref>
+                    <a target="_blank">
+                        <Button
+                            className="dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+                            type="button"
+                        >
+                            View Portfolio
+                        </Button>
+                    </a>
+                </Link>
             </div>
         </div>
     );

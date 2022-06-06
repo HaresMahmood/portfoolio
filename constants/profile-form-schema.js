@@ -37,6 +37,7 @@ export const profileFormSchema = Yup.object().shape({
     ),
     experience: Yup.array().of(
         Yup.object().shape({
+            role: Yup.string(),
             company: Yup.string(),
             location: Yup.string(),
             period: periodValidationRule,

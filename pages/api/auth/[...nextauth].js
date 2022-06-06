@@ -19,7 +19,11 @@ const options = {
                 await prisma.profile.upsert({
                     where: { userId: user.id },
                     update: {},
-                    create: { userId: user.id }
+                    create: {
+                        userId: user.id,
+                        image: user.image,
+                        email: user.email
+                    }
                 });
             }
 

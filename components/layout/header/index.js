@@ -7,7 +7,7 @@ import { useUserProfile } from '../../../hooks/use-user-profile';
 
 const Header = () => {
     const router = useRouter();
-    const { user, isUnauthenticated, profile, isLoading } = useUserProfile();
+    const { isUnauthenticated, profile, isLoading } = useUserProfile();
 
     const onSignOutClick = e => {
         e.preventDefault();
@@ -63,7 +63,7 @@ const Header = () => {
                 <div className="h-7 rounded-full ring-2 ring-indigo-500 ring-offset-2">
                     <Image
                         className="aspect-square h-full"
-                        src={user.image}
+                        src={profile.image}
                         alt=""
                         style={{ borderRadius: '100%' }}
                     />

@@ -68,6 +68,8 @@ model Profile {
   id           String   @id @default(cuid())
   userId       String   @unique
   name         String   @default("")
+  image        String?   
+  email        String?
   title        String   @default("Example Job Title")
   about        String   @default("")
   phone        String   @default("")

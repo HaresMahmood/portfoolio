@@ -14,7 +14,10 @@ export const useUserProfile = () => {
 
     return {
         user: session?.user,
-        profile: { ...profile, name: profile?.name || session?.user.name },
+        profile: {
+            ...profile,
+            name: profile?.name || session?.user.name
+        },
         isLoading,
         isError: error,
         isUnauthenticated: status === 'unauthenticated'
