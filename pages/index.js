@@ -14,13 +14,8 @@ const HomePage = () => {
             <main className="flex h-full w-full flex-col items-center justify-center gap-8 self-center px-14 py-8 md:flex-row md:px-32">
                 <div className="flex w-full flex-col items-start gap-6">
                     <h1 className="text-4xl font-bold">
-                        As <span className="text-indigo-500">easy</span> as 1,
-                        2, 3...
-                        <br />
-                        Create your own{' '}
-                        <span className="text-indigo-500">portfolio</span>{' '}
-                        <br className="hidden md:block" />
-                        <span className="md:capitalize">o</span>n the fly
+                        Introducing a fool-proof <br className="hidden md:block" />{' '}
+                        <span className="text-indigo-500">portfolio</span>{' '} generator
                     </h1>
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
