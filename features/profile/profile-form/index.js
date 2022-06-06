@@ -29,9 +29,10 @@ const ProfileForm = () => {
             validationSchema={profileFormSchema}
         >
             {({ values }) => (
-                <Form
-                    id="form"
-                    className="grid w-full grid-flow-row gap-x-40 gap-y-12 lg:grid-flow-row-dense lg:grid-cols-2"
+                <Form 
+                    id="form" 
+                    className="w-full maxmd:flex maxmd:flex-col"
+                    style={{ columnCount: `2`, columnGap: `10rem` }}
                 >
                     {profileFormTemplate.map(section => (
                         <ProfileFormSection

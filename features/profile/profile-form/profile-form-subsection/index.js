@@ -31,7 +31,7 @@ const ProfileFormSubsection = ({
 
     return (
         <>
-            {label && <h3 className="text-lg font-semibold">{label}</h3>}
+            {label && <div className="w-full border-t-2 border-gray-500"></div>}
             {isMutable ? (
                 <FieldArray name={id}>
                     {({ remove, push }) => (
