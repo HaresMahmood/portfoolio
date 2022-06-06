@@ -22,7 +22,7 @@ const HomePage = () => {
                         to showcase your best work and project experiences.
                     </p>
                     <Link href="/signin">
-                        <Button className="dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-700">
+                        <Button className="bg-gray-800 text-white hover:bg-gray-700">
                             Get Started
                         </Button>
                     </Link>

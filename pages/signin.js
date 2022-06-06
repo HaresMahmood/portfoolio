@@ -31,7 +31,7 @@ const SignInPage = ({ providers }) => (
                     <>
                         {Object.values(providers).map(provider => (
                             <Button
-                                className="dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+                                className="bg-gray-800 w-full text-white hover:bg-gray-700"
                                 key={provider.name}
                                 onClick={() =>
                                     signIn(provider.id, {
@@ -39,6 +39,7 @@ const SignInPage = ({ providers }) => (
                                     })
                                 }
                             >
+                                
                                 {provider.name}
                             </Button>
                         ))}

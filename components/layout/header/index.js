@@ -1,6 +1,7 @@
 import Button from '../../button';
 import Image from '../../image';
 import Link from 'next/link';
+import Spinner from '../../spinner';
 import { signOut } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import { useUserProfile } from '../../../hooks/use-user-profile';
@@ -33,7 +34,7 @@ const Header = () => {
         }
 
         if (isLoading) {
-            return <p className="text-sm">Loading...</p>;
+            return <Spinner />;
         }
 
         return (
@@ -49,7 +50,7 @@ const Header = () => {
                         Sign Out
                     </a>
                 </Link>
-                <div className="h-7 rounded-full ring-2 ring-indigo-500">
+                <div className="h-7 rounded-full ring-2 ring-indigo-500 ring-offset-2">
                     <Image
                         className="aspect-square h-full"
                         src={profile.image}

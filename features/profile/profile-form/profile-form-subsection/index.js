@@ -52,14 +52,6 @@ const ProfileFormSubsection = ({
                                                 name={`${id}.${index}.${field.id}`}
                                             />
                                         ))}
-                                        <button
-                                            className="font-semibold "
-                                            
-                                            type="button"
-                                        >
-                                            - {removeItemLabel}
-                                        </button>
-
                                         <Button
                                             className="bg-none text-red-400 hover:text-red-600 hover:bg-gray-100 hover:ring-0"
                                             onClick={() => remove(index)}
@@ -69,13 +61,13 @@ const ProfileFormSubsection = ({
                                         </Button>
                                     </Fragment>
                                 ))}
-                            <button
-                                className="rounded-full border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+                            <Button
+                                className="bg-none text-gray600 hover:bg-gray-100"
                                 onClick={() => push(emptyItem)}
                                 type="button"
                             >
                                 + {addItemLabel}
-                            </button>
+                            </Button>
                         </>
                     )}
                 </FieldArray>
