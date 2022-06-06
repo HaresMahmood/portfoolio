@@ -18,9 +18,8 @@ const HomePage = () => {
                         <span className="text-indigo-500">portfolio</span>{' '} generator
                     </h1>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Mauris vehicula quis lacus eleifend lacinia. Aenean in
-                        maximus augue.
+                        Simply connect your social account and fill out a few details 
+                        to showcase your best work and project experiences.
                     </p>
                     <Link href="/signin">
                         <Button className="dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-700">
