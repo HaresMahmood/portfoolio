@@ -7,6 +7,9 @@ module.exports = {
     theme: {
         fontFamily: {
             sans: ['"Work Sans"']
+        },
+        screens: {
+            'maxmd': {'max': '767px'}
         }
     },
     plugins: []
