@@ -53,7 +53,7 @@ const ProfileFormSubsection = ({
                                             />
                                         ))}
                                         <Button
-                                            className="bg-none text-red-400 hover:text-red-600 ring-red-600 hover:bg-gray-100"
+                                            className="bg-none ring-red-600 text-red-400 hover:text-red-600 hover:bg-gray-100"
                                             onClick={() => remove(index)}
                                             type="button"
                                         >
